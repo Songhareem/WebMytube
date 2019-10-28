@@ -1,0 +1,23 @@
+{
+  "name": "webmytube",
+  "version": "1.0.0",
+  "description": "Cloning youtube with Vanila and NodeJs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Songhareem/WebMytube.git"
+  },
+  "author": "Hareem",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Songhareem/WebMytube/issues"
+  },
+  "homepage": "https://github.com/Songhareem/WebMytube#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
