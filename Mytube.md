@@ -64,4 +64,27 @@
 
 +   listen(portNum) : portNum 로부터 listen
 
++   get("html path", func) : 사용자가 'html path' URL로 접속시 func 실행
+    +   function(req, res) {<br/>
+            res.send("~");<br/>
+        }
+    
+    + ~ : css js 를 포함한 full html 파일
 
+## 4) Babel
+
++ 최근의 js code를 무난한 예전의 js code로 변환해주는 컴파일러
+
++ npm 6.12 기준
+    + npm install --save-dev babel-node
+    + npm install --save-dev babel-core
+
+## 5) nodemon
+
++ js파일 새 저장시마다 서버 재시작
+
+## 6) npm
+
++ dependencies 를 무시하고 설치하는 방법 (범용적으로 쓰일 툴 설치 방법)
+    + dependency : 프로젝트가 실행되기 위해 필요한 것
+    + npm install ~ -D
