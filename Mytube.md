@@ -91,6 +91,11 @@
     + npm install @babel/core
     + npm install @babel/preset-evn
 
+> import/export 에러 상황<br/>
+> import -> require("moduleName");
+> export -> module.exports = exportDefaultName;
+    
+
 ## 5) nodemon
 
 + js파일 새 저장시마다 서버 재시작
@@ -147,3 +152,22 @@
 + session을 다루기 위해 유저 컴퓨터에 저장된 cookie를 얻어올때 사용
 
 +npm install cookie-parser
+
+## 11) MVC Patten
+
++ MVC? 
+    + Module View Controler
+    + M : 데이터 (DB)
+    + V : 데이터가 어떻게 보이는가 (template)
+    + C : 데이터를 보이게 하기위한 기능 ()
+
+## 12) Routers
+
++ routes.js : 모든 url 모아놓음
+    + :id?
+        + 변할 수 있는 값(정수)
+
++ router 폴더
+    + globalRouter.js : "/"에 해당하는 요청 관리
+    + userRouter.js : "/user"에 해당하는 요청관리
+    + videoRouter.js : "/video"에 해당하는 요청관리
