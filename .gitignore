@@ -105,4 +105,5 @@ dist
 # TernJS port file
 .tern-port
 
+# User gitignoreList
 package-lock.json

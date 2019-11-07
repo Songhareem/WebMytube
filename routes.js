@@ -43,9 +43,4 @@ const routes = {
     deleteVideo : DELETE_VIDEO
 };
 
-const routesTest = {
-
-    users : USERS
-};
-
-module.exports = routesTest;
+module.exports = routes;

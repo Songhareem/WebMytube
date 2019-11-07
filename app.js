@@ -15,17 +15,9 @@ const helmet = require('helmet');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const userRouter = require('./routers/userRouter');
-//const videoRouter = require('./routers/videoRouter');
-//const globalRouter = require('./routers/globalRouter');
+const videoRouter = require('./routers/videoRouter');
+const globalRouter = require('./routers/globalRouter');
 const routes = require('./routes');
-
-if("/users" === routes.users) {
-
-    console.log("same");
-} else {
-
-    console.log("diff");
-}
 
 const app = express();
 
@@ -62,12 +54,10 @@ app.use(morgan("combined"));
 //app.get("/", handleHome);
 //app.get("/profile",handleProfile);
 
-console.log("save!!!!!!!!!!!!!!!!!");
-
 // 외부 route 요청 처리부
-//app.use(routes.home, globalRouter);
+app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
-//app.use(routes.videos, videoRouter);
+app.use(routes.videos, videoRouter);
 
 // app를 외부에서 접속 가능하게 export
 //export default app;

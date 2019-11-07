@@ -1,5 +1,6 @@
 
 const express = require("express");
+const routes = require("../routes");
 
 const userRouter = express.Router();
 
@@ -13,18 +14,26 @@ function HandleUsers(req, res) {
     res.send("users");
 }
 
-function HandleGetEdit(req,res) {
+function HandleUserDetail(req,res) {
 
-    res.send("user edit");
+    res.send("user detail");
 }
 
-function HandleGetPassword(req, res) {
+function HandleEditProfile(req,res) {
 
-    res.send("user password");
+    res.send("user edit profile");
+}
+
+function HandleChangePassword(req, res) {
+
+    res.send("user change password");
 }
 
 // route 요청 처리부
 userRouter.get("/", HandleUsers);
+userRouter.get(routes.editProfile, HandleEditProfile);
+userRouter.get(routes.changePassword, HandleChangePassword);
+userRouter.get(routes.userDetail, HandleUserDetail);
 
 // export
 module.exports = userRouter;

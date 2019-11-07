@@ -161,13 +161,27 @@
     + V : 데이터가 어떻게 보이는가 (template)
     + C : 데이터를 보이게 하기위한 기능 ()
 
++ Module
+    + router, handler 각자 따로 관리
+    + router 모아서 관리
+    + handler 모아서 관리
+
 ## 12) Routers
 
 + routes.js : 모든 url 모아놓음
     + :id?
         + 변할 수 있는 값(정수)
+        + :id가 들어가는 URL get()은 다른 get 아래에 둘 것
 
 + router 폴더
     + globalRouter.js : "/"에 해당하는 요청 관리
     + userRouter.js : "/user"에 해당하는 요청관리
     + videoRouter.js : "/video"에 해당하는 요청관리
+
+> ### 겪었던 에러 상황 및 해결
+> + 에러 : import / export syntex error <br/>
+>   해결 : require / module.export 로 대체 <br/>
+>
+> + 에러 : npm install 문제 <br/>
+>   해결 : 윈도우에서는 powershell이 아닌 cmd 사용할 것
+>

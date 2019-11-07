@@ -9,11 +9,30 @@ function handleHome(req, res) {
     res.send('home');
 }
 
-globalRouter.get(routes.home, handleHome);
-/*
-globalRouter.get(routes.join, (req,res) => res.send("join"));
-globalRouter.get(routes.login, (req,res) => res.send("login"));
-globalRouter.get(routes.logout, (req,res) => res.send("logout"));
-globalRouter.get(routes.search, (req,res) => res.send("search"));
-*/
+function handleJoin(req, res) {
+
+    res.send('join');
+}
+
+function handleLogin(req, res) {
+
+    res.send('login');
+}
+
+function handleLogout(req, res) {
+
+    res.send('logout');
+}
+
+function handleSearch(req, res) {
+
+    res.send('search');
+}
+
+globalRouter.get("/", handleHome);
+globalRouter.get(routes.join, handleJoin);
+globalRouter.get(routes.login, handleLogin);
+globalRouter.get(routes.logout, handleLogout);
+globalRouter.get(routes.search, handleSearch);
+
 module.exports = globalRouter;
