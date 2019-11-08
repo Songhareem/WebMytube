@@ -4,7 +4,7 @@ const routes = require("../routes");
 
 const videoRouter = express.Router();
 
-// route 요청 handles
+// video
 function HandleVideos(req, res) {
 
     res.send("videos");

@@ -153,7 +153,15 @@
 
 +npm install cookie-parser
 
-## 11) MVC Patten
+## 11) Pug
+
++ View 다루는 것을 돕기위한 미들웨어
+
++ HTML을 다루게 도와준다
+
++ npm install pug
+
+## 12) MVC Patten
 
 + MVC? 
     + Module View Controler
@@ -161,12 +169,12 @@
     + V : 데이터가 어떻게 보이는가 (template)
     + C : 데이터를 보이게 하기위한 기능 ()
 
-+ Module
++ Controller
     + router, handler 각자 따로 관리
     + router 모아서 관리
     + handler 모아서 관리
 
-## 12) Routers
+## 13) Routers
 
 + routes.js : 모든 url 모아놓음
     + :id?
@@ -178,6 +186,16 @@
     + userRouter.js : "/user"에 해당하는 요청관리
     + videoRouter.js : "/video"에 해당하는 요청관리
 
+## 14) dependency VS devDependency
+
++ dependency : 실제 상품에서 사용할 패키지(기술 스펙으로 사용되어야할 라이브러리)
+
++ devDependency: 개발용 패키지(개발시 필요한 라이브러리)
+
++ 컴파일(빌드) 타임에 필요한 라이브러리 : devDependency
+
++ 런타임에도 계속 쓰이는 것 : dependency
+
 > ### 겪었던 에러 상황 및 해결
 > + 에러 : import / export syntex error <br/>
 >   해결 : require / module.export 로 대체 <br/>
@@ -185,3 +203,6 @@
 > + 에러 : npm install 문제 <br/>
 >   해결 : 윈도우에서는 powershell이 아닌 cmd 사용할 것
 >
+> + 에러 : babel 미적용 문제<br/>
+>   해결 : https://blog.cometkim.kr/posts/start-modern-javascript-with-babel/ 참고
+>          해결 실패, ES6를 포기하고 ES5로 진행하기로 결정

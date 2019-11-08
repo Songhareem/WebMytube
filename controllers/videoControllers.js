@@ -1,5 +1,6 @@
 
 // Global
+/*
 export function handleLogin(req, res) {
 
     return res.send('login');
@@ -14,3 +15,5 @@ export function handleSearch(req, res) {
 
     return res.send('search');
 }
+*/
+
