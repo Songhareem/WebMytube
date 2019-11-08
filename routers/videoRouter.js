@@ -1,10 +1,11 @@
 
 const express = require('express');
-const routes = require("../routes");
-
+const routes = require('../routes');
+const videoController = require('../controllers/videoControllers');
 const videoRouter = express.Router();
 
 // video
+/*
 function HandleVideos(req, res) {
 
     res.send("videos");
@@ -35,5 +36,12 @@ videoRouter.get(routes.upload, HandleUpload);
 videoRouter.get(routes.videoDetail, HandleVideoDetail);
 videoRouter.get(routes.editVideo, HandleEditVideo);
 videoRouter.get(routes.deleteVideo, HandleDeleteVideo);
+*/
+
+videoRouter.get("/", videoController.handleVideos);
+videoRouter.get(routes.upload, videoController.handleUpload);
+videoRouter.get(routes.videoDetail, videoController.handleVideoDetail);
+videoRouter.get(routes.editVideo, videoController.handleEditVideo);
+videoRouter.get(routes.deleteVideo, videoController.handleDeleteVideo);
 
 module.exports = videoRouter;

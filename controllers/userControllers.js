@@ -3,34 +3,41 @@ Object.defineProperty(exports, "__esModule", {
     value : true
 });
 
+exports.handleHome = handleHome;
+exports.handleJoin = handleJoin;
+exports.handleUsers = handleUsers;
+exports.handleUserDetail = handleUserDetail;
+exports.handleEditProfile = handleEditProfile;
+exports.handleChangePassword = handleEditProfile;
+
 // Global
 function handleHome(req, res) {
 
-    return res.send('home');
+    res.send('home');
 }
 
 function handleJoin(req, res) {
 
-    return res.send('join');
+    res.send('join');
 }
 
-function handleLogin(req, res) {
+//Users
+function handleUsers(req, res) {
 
-    return res.send('login');
+    res.send("users");
 }
 
-function handleLogout(req, res) {
+function handleUserDetail(req,res) {
 
-    return res.send('logout');
+    res.send("user detail");
 }
 
-function handleSearch(req, res) {
+function handleEditProfile(req,res) {
 
-    return res.send('search');
+    res.send("user edit profile");
 }
 
-exports.handleHome = handleHome;
-exports.handleJoin = handleJoin;
-exports.handleLogin = handleLogin;
-exports.handleLogout = handleLogout;
-exports.handleSearch = handleSearch;
+function handleChangePassword(req, res) {
+
+    res.send("user change password");
+}

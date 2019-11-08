@@ -206,3 +206,4 @@
 > + 에러 : babel 미적용 문제<br/>
 >   해결 : https://blog.cometkim.kr/posts/start-modern-javascript-with-babel/ 참고
 >          해결 실패, ES6를 포기하고 ES5로 진행하기로 결정
+

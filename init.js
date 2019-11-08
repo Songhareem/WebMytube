@@ -4,8 +4,13 @@
 //import app from "./app";
 const app = require('./app');
 
-const PORT = 12000;
+const PORT = 4000;
 
-const handleListening = () => console.log(`Listen on : http://localhost:${PORT}`);
+//const handleListening = () => console.log(`Listen on : http://localhost:${PORT}`);
+
+function handleListening() {
+    
+    console.log(`Listen on : http://localhost:${PORT}`);
+}
 
 app.listen(PORT, handleListening);
