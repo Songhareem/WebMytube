@@ -62,11 +62,11 @@
     + 같은 디렉토리 접근하려면, ./name
     + 한단계 밖의 디렉토리 접근, ../name
 
-+ express() : expressjs 실행
++ app.express() : expressjs 실행
 
-+ listen(portNum) : portNum 로부터 listen
++ app.listen(portNum) : portNum 로부터 listen
 
-+ get("html route", midFunc,lastFunc) : 사용자가 'html route' URL로 접속시, midfunc 실행 후, lastFunc 진행
++ app.get("html route", midFunc,lastFunc) : 사용자가 'html route' URL로 접속시, midfunc 실행 후, lastFunc 진행
     + midFunction(req, res, next) {<br/>
           do something;<br/>
           next();<br/>
@@ -79,8 +79,19 @@
     + next : 요청을 계속 처리할 수 있는 권한을 가진 key값
     + midFunc 넣을시, 해당 route요청에만 midFunc 처리
 
++ app.set("title", 'My Site') : 어플리케이션 설정하는 함수
+
 + app.use(midFunc) : 범용적인 route의 Midddleware 선언
     + 모든 get function위에 선언되어야 함
+
++ res.send('보내고 싶은 문장') : 문장 전송
+
++ res.render("template.pug",{ObjectToTemplate}) : html 전송
+    + 첫번째 인자 : 템플릿
+    + 두번째 인자 : 템플릿에 추가할 정보가 담긴 객체
+
++ res.locals.something = "something" : 로컬 변수를 글로벌 변수로 사용가능하게 함
+    + locals에 변수를 저장하면, 외부에서 사용가능
 
 ## 4) Babel
 
@@ -157,9 +168,19 @@
 
 + View 다루는 것을 돕기위한 미들웨어
 
-+ HTML을 다루게 도와준다
++ nodejs의 템플릿 엔진 중 하나, HTML을 다루게 도와준다
 
 + npm install pug
+
++ application의 view engine 설정 값을 변경 (undefined -> pug)
+    + .set('view-engine', pug);
+
++ pug와 express에는 view 파일들의 위치에 관한 기본 설정이 존재
+    + 이를 바꾸고 싶다면, views 설정을 변경
+
++ html 파일을 저장해야하는 폴더의 기본값은 프로젝트 작업 디렉토리 + '/views'
+
++ 사용 예시 ) < p > hello < /p > = p hello
 
 ## 12) MVC Patten
 
@@ -168,6 +189,11 @@
     + M : 데이터 (DB)
     + V : 데이터가 어떻게 보이는가 (template)
     + C : 데이터를 보이게 하기위한 기능 ()
+
++ View
+    + pug 를 이용
+    + layout : html 틀
+    + partials : 페이지의 일부분
 
 + Controller
     + router, handler 각자 따로 관리
@@ -196,6 +222,15 @@
 
 + 런타임에도 계속 쓰이는 것 : dependency
 
+## ref 페이지
+
++ express ref : https://expressjs.com/
+    + API reference 참조
+
++ 아이콘 : https://fontawesome.com
+    + <script src="https://kit.fontawesome.com/ab7da79ab3.js" crossorigin="anonymous"></script> (가입하고 사용가능한 무료 코드)
++ 
+
 > ### 겪었던 에러 상황 및 해결
 > + 에러 : import / export syntex error <br/>
 >   해결 : require / module.export 로 대체 <br/>
@@ -206,4 +241,5 @@
 > + 에러 : babel 미적용 문제<br/>
 >   해결 : https://blog.cometkim.kr/posts/start-modern-javascript-with-babel/ 참고
 >          해결 실패, ES6를 포기하고 ES5로 진행하기로 결정
+
 

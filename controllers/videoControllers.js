@@ -16,42 +16,42 @@ exports.handleDeleteVideo = handleDeleteVideo;
 // Global
 function handleLogin(req, res) {
 
-    res.send('login');
+    res.render('login.pug', {pageTitle: "Login"});
 }
 
 function handleLogout(req, res) {
 
-    res.send('logout');
+    res.render('logout.pug', {pageTitle: "Logout"});
 }
 
 function handleSearch(req, res) {
 
-    res.send('search');
+    res.render('search.pug', {pageTitle: "Search"});
 }
 
 //Video
 
 function handleVideos(req, res) {
 
-    res.send("videos");
+    res.render("videos.pug", {pageTitle: "Videos"});
 }
 
 function handleUpload(req, res) {
 
-    res.send("video upload");
+    res.render("videoUpload.pug", {pageTitle: "Video Upload"});
 }
 
 function handleVideoDetail(req, res) {
 
-    res.send("video detail");
+    res.render("videoDetail.pug", {pageTitle: "Video Detail"});
 }
 
 function handleEditVideo(req, res) {
 
-    res.send("video edit");
+    res.render("videoEdit.pug", {pageTitle: "Video Edit"});
 }
 
 function handleDeleteVideo(req, res) {
 
-    res.send("video delete");
+    res.render("videoDelete.pug", {pageTitle: "Video Delete"});
 }

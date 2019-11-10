@@ -1,0 +1,16 @@
+
+//-
+    모든 html base 파일
+    ppt의 마스터 슬라이드
+    여기 있는 요소가 모든 view에 쓰일 것이므로 모든 view에 extends 사용
+
+doctype html
+html
+    head
+        script(src="https://kit.fontawesome.com/ab7da79ab3.js", crossorigin="anonymous")
+        title #{pageTitle} | #{siteName}
+    body
+        include ../partials/header.pug
+        main
+            block content
+        include ../partials/footer.pug

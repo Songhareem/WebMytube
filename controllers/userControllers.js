@@ -8,36 +8,37 @@ exports.handleJoin = handleJoin;
 exports.handleUsers = handleUsers;
 exports.handleUserDetail = handleUserDetail;
 exports.handleEditProfile = handleEditProfile;
-exports.handleChangePassword = handleEditProfile;
+exports.handleChangePassword = handleChangePassword;
 
 // Global
 function handleHome(req, res) {
 
-    res.send('home');
+    //res.send('home');
+    res.render("home.pug", {pageTitle: "Home"});
 }
 
 function handleJoin(req, res) {
 
-    res.send('join');
+    res.render('join.pug', {pageTitle: "Join"});
 }
 
 //Users
 function handleUsers(req, res) {
 
-    res.send("users");
+    res.render("users.pug", {pageTitle: "Users"});
 }
 
 function handleUserDetail(req,res) {
 
-    res.send("user detail");
+    res.render("userDetail.pug", {pageTitle: "User Detail"});
 }
 
 function handleEditProfile(req,res) {
 
-    res.send("user edit profile");
+    res.render("userEditProfile.pug", {pageTitle: "Edit Profile"});
 }
 
 function handleChangePassword(req, res) {
 
-    res.send("user change password");
+    res.render("userChangePassword.pug", {pageTitle: "Change Password"});
 }
