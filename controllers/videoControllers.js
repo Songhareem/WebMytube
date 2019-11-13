@@ -26,7 +26,13 @@ function handleLogout(req, res) {
 
 function handleSearch(req, res) {
 
-    res.render('search.pug', {pageTitle: "Search"});
+    /*
+    const {
+        query : { term: termIs}
+    } = req;
+    */
+    const termIs = req.query.term;
+    res.render('search.pug', {pageTitle: "Search", searchingFor: termIs});
 }
 
 //Video

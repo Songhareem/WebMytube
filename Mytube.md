@@ -182,6 +182,8 @@
 
 + 사용 예시 ) < p > hello < /p > = p hello
 
++ form(action="path", method="get") 으로 해당 path의 controller를 호출
+
 ## 12) MVC Patten
 
 + MVC? 
