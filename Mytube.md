@@ -183,6 +183,9 @@
 + 사용 예시 ) < p > hello < /p > = p hello
 
 + form(action="path", method="get") 으로 해당 path의 controller를 호출
+    + 정보를 비밀로 유지해야할때는 method="post"
+
++ | : 이 뒤에 오는 문자를 태그가 아닌 문자열로 인식
 
 ## 12) MVC Patten
 
