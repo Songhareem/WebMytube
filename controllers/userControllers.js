@@ -3,23 +3,30 @@ Object.defineProperty(exports, "__esModule", {
     value : true
 });
 
-exports.handleHome = handleHome;
 exports.handleJoin = handleJoin;
+exports.handleLogin = handleLogin;
+exports.handleLogout = handleLogout;
+
 exports.handleUsers = handleUsers;
 exports.handleUserDetail = handleUserDetail;
 exports.handleEditProfile = handleEditProfile;
 exports.handleChangePassword = handleChangePassword;
 
 // Global
-function handleHome(req, res) {
-
-    //res.send('home');
-    res.render("home.pug", {pageTitle: "Home"});
-}
 
 function handleJoin(req, res) {
 
     res.render('join.pug', {pageTitle: "Join"});
+}
+
+function handleLogin(req, res) {
+
+    res.render('login.pug', {pageTitle: "Login"});
+}
+
+function handleLogout(req, res) {
+
+    res.render('logout.pug', {pageTitle: "Logout"});
 }
 
 //Users

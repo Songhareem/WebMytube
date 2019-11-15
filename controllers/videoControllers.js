@@ -1,10 +1,12 @@
 
+// import {videos} from "../db"
+const db = require("../db");
+
 Object.defineProperty(exports, "__esModule", {
     value : true
 });
 
-exports.handleLogin = handleLogin;
-exports.handleLogout = handleLogout;
+exports.handleHome = handleHome;
 exports.handleSearch = handleSearch;
 
 exports.handleVideos = handleVideos;
@@ -14,14 +16,10 @@ exports.handleEditVideo = handleEditVideo;
 exports.handleDeleteVideo = handleDeleteVideo;
 
 // Global
-function handleLogin(req, res) {
+function handleHome(req, res) {
 
-    res.render('login.pug', {pageTitle: "Login"});
-}
-
-function handleLogout(req, res) {
-
-    res.render('logout.pug', {pageTitle: "Logout"});
+    //res.send('home');
+    res.render("home.pug", {pageTitle: "Home", videos: db});
 }
 
 function handleSearch(req, res) {

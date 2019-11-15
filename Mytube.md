@@ -187,6 +187,9 @@
 
 + | : 이 뒤에 오는 문자를 태그가 아닌 문자열로 인식
 
++ each element in Array : 배열에서 하나씩 요소 가져옴(iterator) 사용법)
+    + h1=element.factor
+
 ## 12) MVC Patten
 
 + MVC? 
@@ -234,7 +237,8 @@
 
 + 아이콘 : https://fontawesome.com
     + <script src="https://kit.fontawesome.com/ab7da79ab3.js" crossorigin="anonymous"></script> (가입하고 사용가능한 무료 코드)
-+ 
+
++ 비디오 데모 : html video mdn
 
 > ### 겪었던 에러 상황 및 해결
 > + 에러 : import / export syntex error <br/>
