@@ -8,7 +8,7 @@ const userRouter = express.Router();
 userRouter.get("/", userController.handleUsers);
 userRouter.get(routes.editProfile, userController.handleEditProfile);
 userRouter.get(routes.changePassword, userController.handleChangePassword);
-userRouter.get(routes.userDetail, userController.handleUserDetail);
+userRouter.get(routes.userDetail(), userController.handleUserDetail);
 
 // export
 module.exports = userRouter;

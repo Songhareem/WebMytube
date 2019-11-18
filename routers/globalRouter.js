@@ -7,8 +7,13 @@ const videoController = require('../controllers/videoControllers');
 const globalRouter = express.Router();
 
 globalRouter.get("/", videoController.handleHome);
-globalRouter.get(routes.join, userController.handleJoin);
-globalRouter.get(routes.login, userController.handleLogin);
+
+globalRouter.get(routes.join, userController.handleGetJoin);
+globalRouter.post(routes.join, userController.handlePostJoin);
+
+globalRouter.get(routes.login, userController.handleGetLogin);
+globalRouter.post(routes.login, userController.handlePostLogin);
+
 globalRouter.get(routes.logout, userController.handleLogout);
 globalRouter.get(routes.search, videoController.handleSearch);
 

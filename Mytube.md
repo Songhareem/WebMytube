@@ -93,6 +93,10 @@
 + res.locals.something = "something" : 로컬 변수를 글로벌 변수로 사용가능하게 함
     + locals에 변수를 저장하면, 외부에서 사용가능
 
++ res.status(status code) = status code(숫자) 전송
+
++ res.redirect(path) = path로 페이지 이동
+
 ## 4) Babel
 
 + 최근의 js code를 무난한 예전의 js code로 변환해주는 컴파일러
@@ -190,13 +194,15 @@
 + each element in Array : 배열에서 하나씩 요소 가져옴(iterator) 사용법)
     + h1=element.factor
 
++ mixins : 자주 반복되는 html 코드 담고 있는 폴더
+
 ## 12) MVC Patten
 
 + MVC? 
     + Module View Controler
     + M : 데이터 (DB)
     + V : 데이터가 어떻게 보이는가 (template)
-    + C : 데이터를 보이게 하기위한 기능 ()
+    + C : 데이터를 받고, 로직 처리 후, 알맞는 페이지를 보냄
 
 + View
     + pug 를 이용
@@ -238,7 +244,7 @@
 + 아이콘 : https://fontawesome.com
     + <script src="https://kit.fontawesome.com/ab7da79ab3.js" crossorigin="anonymous"></script> (가입하고 사용가능한 무료 코드)
 
-+ 비디오 데모 : html video mdn
++ 상태 코드 : https://developer.mozilla.org/ko/docs/Web/HTTP/Status
 
 > ### 겪었던 에러 상황 및 해결
 > + 에러 : import / export syntex error <br/>

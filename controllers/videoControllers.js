@@ -1,6 +1,7 @@
 
 // import {videos} from "../db"
 const db = require("../db");
+const routes = require("../routes");
 
 Object.defineProperty(exports, "__esModule", {
     value : true
@@ -11,7 +12,10 @@ exports.handleSearch = handleSearch;
 
 exports.handleVideos = handleVideos;
 exports.handleVideoDetail = handleVideoDetail;
-exports.handleUpload = handleUpload;
+
+exports.handleGetUpload = handleGetUpload;
+exports.handlePostUpload = handlePostUpload;
+
 exports.handleEditVideo = handleEditVideo;
 exports.handleDeleteVideo = handleDeleteVideo;
 
@@ -30,7 +34,7 @@ function handleSearch(req, res) {
     } = req;
     */
     const termIs = req.query.term;
-    res.render('search.pug', {pageTitle: "Search", searchingFor: termIs});
+    res.render('search.pug', {pageTitle: "Search", searchingFor: termIs, videos: db});
 }
 
 //Video
@@ -40,9 +44,18 @@ function handleVideos(req, res) {
     res.render("videos.pug", {pageTitle: "Videos"});
 }
 
-function handleUpload(req, res) {
+function handleGetUpload(req, res) {
 
     res.render("videoUpload.pug", {pageTitle: "Video Upload"});
+}
+
+function handlePostUpload(req, res) {
+
+    const reqBody = req.body;
+    // title, file, description
+    // to do: upload and save videos
+    const fakeID = 1;
+    res.redirect(routes.videoDetail(fakeID));
 }
 
 function handleVideoDetail(req, res) {
