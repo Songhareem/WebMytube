@@ -1,6 +1,5 @@
 
-// import {videos} from "../db"
-const db = require("../db");
+
 const routes = require("../routes");
 
 Object.defineProperty(exports, "__esModule", {

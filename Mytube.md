@@ -134,7 +134,7 @@
 
 ## 8) Morgan
 
-+ looging에 도움을 주는 미들웨어
++ logging에 도움을 주는 미들웨어
 
 + npm install morgan
 
@@ -235,6 +235,25 @@
 + 컴파일(빌드) 타임에 필요한 라이브러리 : devDependency
 
 + 런타임에도 계속 쓰이는 것 : dependency
+
+# 15) mongoDB
+
++ js와 연동하기 위해 어댑터 필요 : mongoosejs
+
++ mongoosejs 설치 : npm install --save mongoose
+
++ mongoose.connect("mongodb://localhost:27017/dbName", {att1 : true or false, att2: true or false ...});
+    + 연결하려는 db명, 연결시도 할 때마다, 해당 attribute에 대해 true/false 로 설정하고 요청
+
++ mongoose.connection.once("open", handleOpen);
+
++ mongoose.connection.on("error",handleError);
+
++ 다른 js에서 open된 mongoose 가 포함된 js파일을 require하면 바로 DB와 연결됨
+
+# 16) dotenv
+
++ 일반적으로 json을 사용하여 보관하는 포트번호, secret code, database주소 등의 환경변수를 .env파일에 숨겨주는 모듈
 
 ## ref 페이지
 

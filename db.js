@@ -1,5 +1,25 @@
 
-// fake db for test
+const mongoose = require("mongoose");
+//const dotenv = require("dotenv");
+
+function handleOpen() {
+
+    console.log("Connected to DB");
+}
+
+mongoose.connect(
+    "mongodb://localhost:27017/wetube",
+    {
+        useNewUrlParser: true,
+        useFindAndModify: false
+    }
+);
+
+const db = mongoose.connection;
+
+db.once("open", handleOpen);
+
+/* fake db for test
 const videos = [
     {
         id:1,
@@ -40,3 +60,4 @@ const videos = [
 ];
 
 module.exports = videos;
+*/
