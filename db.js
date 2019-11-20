@@ -1,23 +1,39 @@
 
+// database config
+
 const mongoose = require("mongoose");
-//const dotenv = require("dotenv");
-
-function handleOpen() {
-
-    console.log("Connected to DB");
-}
+const dotenv = require("dotenv");
+dotenv.config();
 
 mongoose.connect(
-    "mongodb://localhost:27017/wetube",
+    process.env.MONGO_URL,
     {
         useNewUrlParser: true,
-        useFindAndModify: false
+        useFindAndModify: false,
+        useUnifiedTopology: true,
     }
 );
 
 const db = mongoose.connection;
 
+function handleOpen() {
+
+    //console.log(process.env.PORT);
+    //console.log(process.env.MONGO_URL);
+    console.log("Connected to DB");
+}
+
+function handleError(error) {
+
+    console.log(`Error on DB connection ${error}`);
+}
+
+// db연결 함수 실행
 db.once("open", handleOpen);
+db.on("error",handleError);
+
+
+
 
 /* fake db for test
 const videos = [

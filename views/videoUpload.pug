@@ -2,16 +2,9 @@ extends layouts/main.pug
 
 block content
     .form-container
-        form(action=`/videos${routes.upload}`, method="post")
+        form(action=`/videos${routes.upload}`, method="post", enctype="multipart/form-data")
             label(for="videoFile") Video File
-            input(type="file", id="videoFild", name="videoFile", required=true)
+            input(type="file", id="videoFild", name="videoFile", required=true, accept="video/*")
             input(type="text", name="title", placeholder="Title", required=true)
             input(type="text", name="description", placeholder="Description", required=true)
             input(type="submit", value="Join Now", required=true)
-    //-
-        form(action=routes.join, method="post")
-            input(type="text", name="name", placeholder="Full Name")
-            input(type="email", name ="email", placeholder="Email")
-            input(type="password", name ="password", placeholder="Password")
-            input(type="password", name ="password2", placeholder="Verify Password")
-            input(type="submit", value="Join Now")

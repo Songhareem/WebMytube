@@ -1,5 +1,8 @@
 
+// middleware 및 외부에서 접근 가능한 변수 선언
+
 const routes = require("./routes");
+const multer = require("multer");
 
 Object.defineProperty(exports,"__esModule", {
 
@@ -7,6 +10,11 @@ Object.defineProperty(exports,"__esModule", {
 });
 
 exports.localsMiddleware = localsMiddleware;
+exports.uploadVideo = void 0;
+
+// multer file 저장 경로
+const multerVideo = multer({dest: "videos/"});
+const uploadVideo = multerVideo.single("videoFile");
 
 function localsMiddleware(req, res, next) {
 
@@ -20,4 +28,6 @@ function localsMiddleware(req, res, next) {
     
     // 이 다음에 있는 함수로 개행
     next();
-}; 
+};
+
+exports.uploadVideo = uploadVideo;

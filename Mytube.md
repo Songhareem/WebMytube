@@ -23,6 +23,9 @@
   인터넷(public private 네트워크)에 연결된 한 덩어리의 코드<br/>
   접속에 요청에 응답하는 소프트웨어
 
++ async : 동기 함수로 만들려 할때
+    await : async funcion내에서만 가능, await 뒤의 작업을 완료할때까지 진행하지 않음
+
 ## 2) Express
 + Express란?<br/>
   NodeJs를 위한 서버 프레임워크
@@ -196,6 +199,8 @@
 
 + mixins : 자주 반복되는 html 코드 담고 있는 폴더
 
++ input의 accept옵션 ("audio/", "image/*", "video/*) 를 이용해 수용하는 file 제한
+
 ## 12) MVC Patten
 
 + MVC? 
@@ -203,6 +208,9 @@
     + M : 데이터 (DB)
     + V : 데이터가 어떻게 보이는가 (template)
     + C : 데이터를 받고, 로직 처리 후, 알맞는 페이지를 보냄
+
++ Model
+    +
 
 + View
     + pug 를 이용
@@ -238,6 +246,8 @@
 
 # 15) mongoDB
 
++ 장점 : document(json파일) 줄여줌
+
 + js와 연동하기 위해 어댑터 필요 : mongoosejs
 
 + mongoosejs 설치 : npm install --save mongoose
@@ -245,15 +255,56 @@
 + mongoose.connect("mongodb://localhost:27017/dbName", {att1 : true or false, att2: true or false ...});
     + 연결하려는 db명, 연결시도 할 때마다, 해당 attribute에 대해 true/false 로 설정하고 요청
 
-+ mongoose.connection.once("open", handleOpen);
++ db 연결
+    <pre>mongoose.connection.once("open", handleOpen);</pre>
 
-+ mongoose.connection.on("error",handleError);
++ db 연결 error 처리
+    <pre>mongoose.connection.on("error",handleError);</pre>
 
 + 다른 js에서 open된 mongoose 가 포함된 js파일을 require하면 바로 DB와 연결됨
+
++ 스키마 생성
+    <pre>const newSchema = new mongoose.Schema({
+    key: {
+        value: Stiring,
+        required: "required String input",
+        defalut: "default String",
+        ...
+        },
+        ...
+    });</pre>
+
++ 스키마 모델화
+    <pre>mongoose.model("Key", newSchema);</pre>
+
++ 모델화된 스키마 읽기
+    <pre>mongoose.Schema.Types.ObjectId, ref : "Key"</pre>
 
 # 16) dotenv
 
 + 일반적으로 json을 사용하여 보관하는 포트번호, secret code, database주소 등의 환경변수를 .env파일에 숨겨주는 모듈
+
++ .env 파일 생성후, key=value 방식으로 저장
+
++ .env 파일은 .gitignore에 포함시켜줄 것
+
++ 사용시,
+    + import dotenv from "dotenv"; 
+    + dotenv.config(); // .env 파일 불러오기
+    + process.env.key; // return value of key
+
+# 17) multer
+
++ file을 업로드하고 URL을 반환해주는 middleware
+
++ npm install --save multer
+
++ file upload하는 form에 enctype="multipart/form-data" 속성 추가
+
++ multer({dest: "uploadPath/"}).single("nameOfFile")
+    + dest: 경로
+    + single("~") : 하나의 파일만 업로드
+    + nameOfFile : file 받는 form 안 input 내의 'name'에 해당하는 value값
 
 ## ref 페이지
 
@@ -264,6 +315,10 @@
     + <script src="https://kit.fontawesome.com/ab7da79ab3.js" crossorigin="anonymous"></script> (가입하고 사용가능한 무료 코드)
 
 + 상태 코드 : https://developer.mozilla.org/ko/docs/Web/HTTP/Status
+
++ multer ref : https://github.com/expressjs/multer/blob/master/doc/README-ko.md
+
++ mongoose ref : https://mongoosejs.com/docs/guide.html
 
 > ### 겪었던 에러 상황 및 해결
 > + 에러 : import / export syntex error <br/>

@@ -47,9 +47,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 
 // Morgan ("options")
-app.use(morgan("combined"));
+//app.use(morgan("combined"));
 //app.use(morgan("common"));
-//app.use(morgan("dev"));
+app.use(morgan("dev"));
 //app.use(morgan("short"));
 //app.use(morgan("tiny"));
 

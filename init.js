@@ -1,12 +1,15 @@
 
 // app.js 안의 호출
 
+// import "./db"
+require("./db");            // DB 연동
+require("./models/Video");   // 내가 정의한 schema read
+require("./models/Comment"); 
 //import app from "./app";
 const app = require('./app');
-// import "./db"
-require("./db");
+const dotenv = require('dotenv');
 
-const PORT = 4000;
+const PORT = process.env.PORT || 4000; // 만약 못 찾는다면 port 4000으로 진행
 
 //const handleListening = () => console.log(`Listen on : http://localhost:${PORT}`);
 

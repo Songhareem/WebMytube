@@ -1,6 +1,7 @@
 
 
 const routes = require("../routes");
+const Video = require("../models/Video");
 
 Object.defineProperty(exports, "__esModule", {
     value : true
@@ -19,10 +20,16 @@ exports.handleEditVideo = handleEditVideo;
 exports.handleDeleteVideo = handleDeleteVideo;
 
 // Global
-function handleHome(req, res) {
+async function handleHome(req, res) {
 
-    //res.send('home');
-    res.render("home.pug", {pageTitle: "Home", videos: db});
+    try{
+        videos = await Video.find({}); // db의 모든 video 가져옴
+        console.log(videos);
+        res.render("home.pug", {pageTitle: "Home", videos: videos});
+    }catch(error) {
+        console.log(error);
+        res.render("home.pug", {pageTitle: "Home", videos: []});
+    }
 }
 
 function handleSearch(req, res) {
@@ -37,7 +44,6 @@ function handleSearch(req, res) {
 }
 
 //Video
-
 function handleVideos(req, res) {
 
     res.render("videos.pug", {pageTitle: "Videos"});
@@ -48,13 +54,25 @@ function handleGetUpload(req, res) {
     res.render("videoUpload.pug", {pageTitle: "Video Upload"});
 }
 
-function handlePostUpload(req, res) {
+async function handlePostUpload(req, res) {
 
-    const reqBody = req.body;
-    // title, file, description
+    const reqBody = req.body; // title, description
+    const reqFile = req.file; // path
+
     // to do: upload and save videos
-    const fakeID = 1;
-    res.redirect(routes.videoDetail(fakeID));
+    try{
+        const newVideo = await Video.create({
+
+            fileUrl: reqFile.path,
+            title: reqBody.title,
+            description: reqBody.description,
+        });
+        console.log(newVideo, newVideo.id);
+        res.redirect(routes.videoDetail(newVideo.id));
+    }catch(error){
+        console.log("Video Upload Error, Error Code is ", error);
+        // 멈추면 안되지만 일단 그냥 진행
+    }
 }
 
 function handleVideoDetail(req, res) {
