@@ -21,7 +21,7 @@ const VideoSchema = new mongoose.Schema({
     },
     createdAt : {
         type: Date,
-        defalut: Date.now // 현재 날짜 반환 함수
+        defalut: Date.now() // 현재 날짜 반환 함수
     },
     commment: [{
         type: mongoose.Schema.Types.ObjectId,

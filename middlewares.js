@@ -13,7 +13,7 @@ exports.localsMiddleware = localsMiddleware;
 exports.uploadVideo = void 0;
 
 // multer file 저장 경로
-const multerVideo = multer({dest: "videos/"});
+const multerVideo = multer({dest: "uploads/videos/"});
 const uploadVideo = multerVideo.single("videoFile");
 
 function localsMiddleware(req, res, next) {

@@ -16,14 +16,17 @@ exports.handleVideoDetail = handleVideoDetail;
 exports.handleGetUpload = handleGetUpload;
 exports.handlePostUpload = handlePostUpload;
 
-exports.handleEditVideo = handleEditVideo;
+exports.handleGetEditVideo = handleGetEditVideo;
+exports.handlePostEditVideo = handlePostEditVideo;
+
 exports.handleDeleteVideo = handleDeleteVideo;
 
 // Global
 async function handleHome(req, res) {
 
     try{
-        videos = await Video.find({}); // db의 모든 video 가져옴
+        //await Video.remove();
+        const videos = await Video.find({}); // db의 모든 video 가져옴
         console.log(videos);
         res.render("home.pug", {pageTitle: "Home", videos: videos});
     }catch(error) {
@@ -75,14 +78,51 @@ async function handlePostUpload(req, res) {
     }
 }
 
-function handleVideoDetail(req, res) {
+async function handleVideoDetail(req, res) {
 
-    res.render("videoDetail.pug", {pageTitle: "Video Detail"});
+    /*/
+    const {
+        params: {id}
+    } = req;
+    //*/
+    const videoID = req.params.id;
+    try{
+    const video = await Video.findById(videoID);
+    //console.log(video);
+    res.render("videoDetail.pug", {pageTitle: "Video Detail", video: video});    
+    }catch(error) {
+        console.log(error);
+        res.redirect(routes.home);
+    }
 }
 
-function handleEditVideo(req, res) {
+async function handleGetEditVideo(req, res) {
 
-    res.render("videoEdit.pug", {pageTitle: "Video Edit"});
+    const videoID = req.params.id;
+    try{
+        const video = await Video.findById(videoID);
+        res.render("videoEdit.pug", {pageTitle: `Edit ${video.title}`, video: video});
+    }catch(error){
+        console.log(error);
+        res.redirect(routes.home);
+    }
+}
+
+async function handlePostEditVideo(req, res) {
+
+    const videoID = req.params.id;
+    const body = req.body;
+    try{
+        await Video.findOneAndUpdate({_id: videoID}, 
+            {
+                title: body.title, 
+                description: body.description
+            });
+        res.redirect(routes.videoDetail(videoID));
+    }catch(error) {
+        console.log(error);
+        res.redirect(routes.home);
+    }
 }
 
 function handleDeleteVideo(req, res) {

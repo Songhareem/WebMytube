@@ -41,6 +41,9 @@ app.use(helmet());
 // View engine -> pug
 app.set('view-engine', "pug");
 
+// db get uploads/
+app.use("/uploads", express.static("uploads"));
+
 // cookie, body parser
 app.use(cookieParser());
 app.use(bodyParser.json());

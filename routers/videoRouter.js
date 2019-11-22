@@ -5,13 +5,21 @@ const videoController = require('../controllers/videoControllers');
 const middleware = require("../middlewares")
 const videoRouter = express.Router();
 
+// videos root
 videoRouter.get("/", videoController.handleVideos);
 
+// upload
 videoRouter.get(routes.upload, videoController.handleGetUpload);
 videoRouter.post(routes.upload, middleware.uploadVideo, videoController.handlePostUpload);
 
+// detail
 videoRouter.get(routes.videoDetail(), videoController.handleVideoDetail);
-videoRouter.get(routes.editVideo(), videoController.handleEditVideo);
+
+// edit
+videoRouter.get(routes.editVideo(), videoController.handleGetEditVideo);
+videoRouter.post(routes.editVideo(), videoController.handlePostEditVideo);
+
+// delete
 videoRouter.get(routes.deleteVideo(), videoController.handleDeleteVideo);
 
 module.exports = videoRouter;

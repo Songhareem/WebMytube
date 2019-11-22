@@ -109,4 +109,4 @@ dist
 package-lock.json
 
 # multer file save path
-videos/
+uploads/

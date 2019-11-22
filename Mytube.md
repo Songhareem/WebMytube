@@ -100,6 +100,15 @@
 
 + res.redirect(path) = path로 페이지 이동
 
++ app.use("/path", express.static("dirName")
+    + /path로 접근시,
+    + express.static("dirName") dir에 file을 보내주는 middleware
+    + controller나 view 가 있는지 확인하지 않음
+
++ req.file : 받은 file 정보
++ req.body : 받은 body 정보
++ req.params : 받은 
+
 ## 4) Babel
 
 + 최근의 js code를 무난한 예전의 js code로 변환해주는 컴파일러
@@ -305,6 +314,17 @@
     + dest: 경로
     + single("~") : 하나의 파일만 업로드
     + nameOfFile : file 받는 form 안 input 내의 'name'에 해당하는 value값
+    + 경로에 관해 : 
+        + /path : 내 컴퓨터 root에 upload 만듦
+        + 
+
+# 18) mongoDB
+
++ 터미널로 mongo 실행 후,
+    + use dbName : switched to db dbName
+    + show collections : 테이블 보기
+    + db.collectionName.find() : 테이블 내 데이터 보기
+    + db.collectionName.remove({}) : 테이블 지우기 
 
 ## ref 페이지
 
