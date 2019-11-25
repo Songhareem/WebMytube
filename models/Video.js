@@ -17,13 +17,13 @@ const VideoSchema = new mongoose.Schema({
     description: String,
     views: {
         type: Number,
-        defalut: 0
+        default: 0
     },
     createdAt : {
         type: Date,
-        defalut: Date.now() // 현재 날짜 반환 함수
+        default: Date.now() // 현재 날짜 반환 함수
     },
-    commment: [{
+    comments: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: "Comment"
     }],

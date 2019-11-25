@@ -326,6 +326,16 @@
     + db.collectionName.find() : 테이블 내 데이터 보기
     + db.collectionName.remove({}) : 테이블 지우기 
 
+# 19) ESLint
+
++ js대상 정적 코드 분석도구
+
++ install ref : https://steadyzest.tistory.com/20
+
+# 20) regular expression(정규표현식)
+
++ 특정한 규칙을 가진 문자열의 집합을 표현하는 데 사용하는 형식 언어
+
 ## ref 페이지
 
 + express ref : https://expressjs.com/
@@ -340,6 +350,8 @@
 
 + mongoose ref : https://mongoosejs.com/docs/guide.html
 
++ 정규표현식 ref : https://regex101.com, https://docs.mongodb.com/manual/reference/operator/query/
+
 > ### 겪었던 에러 상황 및 해결
 > + 에러 : import / export syntex error <br/>
 >   해결 : require / module.export 로 대체 <br/>
@@ -350,5 +362,8 @@
 > + 에러 : babel 미적용 문제<br/>
 >   해결 : https://blog.cometkim.kr/posts/start-modern-javascript-with-babel/ 참고
 >          해결 실패, ES6를 포기하고 ES5로 진행하기로 결정
+>
+> + 에러 : home 화면에서 오래된 비디오가 위로 오는 문제
+>   해결 : sort({_id: -1}); => 역정렬
 
 

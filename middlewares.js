@@ -16,6 +16,8 @@ exports.uploadVideo = void 0;
 const multerVideo = multer({dest: "uploads/videos/"});
 const uploadVideo = multerVideo.single("videoFile");
 
+exports.uploadVideo = uploadVideo;
+
 function localsMiddleware(req, res, next) {
 
     // 외부에도 변수명처럼 존재
@@ -29,5 +31,3 @@ function localsMiddleware(req, res, next) {
     // 이 다음에 있는 함수로 개행
     next();
 };
-
-exports.uploadVideo = uploadVideo;
