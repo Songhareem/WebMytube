@@ -65,6 +65,11 @@
     + 같은 디렉토리 접근하려면, ./name
     + 한단계 밖의 디렉토리 접근, ../name
 
++ require("path")
+    + __dirname : 현재 프로젝트의 디렉토리 이름(Nodejs 전역변수)
+    + path.resolve(filePath, "folderName","innerFolderName", "inner.js")
+    + path.join(folderPath, "whatYouWannaConnectFolderName")
+
 + app.express() : expressjs 실행
 
 + app.listen(portNum) : portNum 로부터 listen
@@ -333,6 +338,20 @@
 + install ref : https://steadyzest.tistory.com/20
 
 # 20) regular expression(정규표현식)
+
+# 21) webpack
+
++ es6, Scss 등의 모던 js css 등을 클래식 js css 로 변환해줌
+
++ 설치 : npm install webpack webpack-cli
+
++ 완전히 클라이언트단 코드이므로, babel이 먹지않음
+
++ entry?
+    + 파일들이 어디에서 왔는가
+
++ output
+    + 그것을 어디에 넣을 것인가
 
 + 특정한 규칙을 가진 문자열의 집합을 표현하는 데 사용하는 형식 언어
 
