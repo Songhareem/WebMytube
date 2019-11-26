@@ -43,6 +43,7 @@ app.set('view-engine', "pug");
 
 // db get uploads/
 app.use("/uploads", express.static("uploads"));
+app.use("/static", express.static("static"));
 
 // cookie, body parser
 app.use(cookieParser());

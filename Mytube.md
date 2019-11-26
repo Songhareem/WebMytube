@@ -122,6 +122,8 @@
     + npm install @babel/node
     + npm install @babel/core
     + npm install @babel/preset-evn
+    + npm install @babel/polyfill
+    + npm install babel-loader(webpack 사용시)
 
 > import/export 에러 상황<br/>
 > import -> require("moduleName");
@@ -307,6 +309,15 @@
     + dotenv.config(); // .env 파일 불러오기
     + process.env.key; // return value of key
 
+# 16-1) cross-env
+
++ process.env 사용시, OS가 Window라서 인식못하는 발생하는 문제 해결
+    + package.json의 script에서 webpack 관련 스크립트 설정시, 밖에서 env에 인식이 안됨
+    + 문제 : "dev:assets": "WEBPACK_ENV=development webpack"
+    + 해결 : "dev:assets": "cross-env WEBPACK_ENV=development webpack"
+
++ npm install --save-dev cross-env
+
 # 17) multer
 
 + file을 업로드하고 URL을 반환해주는 middleware
@@ -339,6 +350,8 @@
 
 # 20) regular expression(정규표현식)
 
++ 특정한 규칙을 가진 문자열의 집합을 표현하는 데 사용하는 형식 언어
+
 # 21) webpack
 
 + es6, Scss 등의 모던 js css 등을 클래식 js css 로 변환해줌
@@ -353,7 +366,35 @@
 + output
     + 그것을 어디에 넣을 것인가
 
-+ 특정한 규칙을 가진 문자열의 집합을 표현하는 데 사용하는 형식 언어
++ webpack.config.js 
+    + entry files, output folder 설정
+    + run mode 설정(develop OR production)
+    + js, scss, sass등에 맞는 loader 설정
+
+# 21-1) extract-text-webpack-plugin
+
++ webpack config에 필요한 텍스트 추출 기능
+
++ npm install --save-dev extract-text-webpack-plugin
+
++ extract([{1},{2},{3}]) : 3->2->1 순으로 추출 진행
+
++ loader 필요하므로 설치
+    + npm install css-loader postcss-loader sass-loader
+
+# 22) postcss
+
++ css의 호환성을 해결해주는 문법
+
++ Autoprefixer : CSS를 파싱할 때 자동으로 vendor 별 prefix를 붙여주는 플러그인
+
++ npm install autoprefixer
+
+# 23) sass
+
++ css의 세련된 문법
+
++ npm install node-sass
 
 ## ref 페이지
 
@@ -370,6 +411,8 @@
 + mongoose ref : https://mongoosejs.com/docs/guide.html
 
 + 정규표현식 ref : https://regex101.com, https://docs.mongodb.com/manual/reference/operator/query/
+
++ autoprefix options ref: https://github.com/browserslist/browserslist 의 Full List
 
 > ### 겪었던 에러 상황 및 해결
 > + 에러 : import / export syntex error <br/>

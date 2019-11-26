@@ -108,5 +108,8 @@ dist
 # User gitignoreList
 package-lock.json
 
-# multer file save path
+# multer files save path
 uploads/
+
+# aboud front design files save path
+static/
