@@ -396,6 +396,109 @@
 
 + npm install node-sass
 
++ _variables.scss
+    + css에서 사용할 색
+    + 언더바가 붙은 이유: 실제 사용자들은 사용하지 않을것이므로
+
++ reset.scss
+    + 브라우저 기본값들을 초기화, 값들을 0으로 만듦
+    + ref: https://gist.github.com/hcatlin/1027867
+
++ main.scss
+    + html body, main(main.pug를 위함) 등 범용적인 틀에서 쓰이는 설정 
+        + font-family, bgColor 등
+
++ styles.scss
+    + 실제로 html에서 link로 읽어올 stylesheet
+
+## css 정리
+
++ display: options;
+    + grid
+        + grid 레이아웃 사용
+        + repeat() ref : https://developer.mozilla.org/en-US/docs/Web/CSS/repeat
+        + grid-template-columns : Apx Bpx Cpx ... Npx;
+            + N개의 행을 각각 A B C ... N px 넓이로 지정
+        + grid-template-rows : Apx Bpx Cpx ... Npx;
+            + N개의 열을 각각 A B C ... N px 넓이로 지정
+    + flex
+        + flex box 모델 사용
+
++ box 모델
+    + margin : 테두리와 외곽의 거리
+        + Border : 테두리
+            + padding : 테두리와 내용의 거리
+                + content : 내용
+
++ margin: 0 auto
+    + 좌우 여백 사이즈 정렬
+
++ place-content : A B
+    + A에서 시작해서 B에서 끝
+    + A : 세로 위치 지정
+        + start : 위쪽
+        + center : 중앙
+        + end : 아래쪽
+    + B : 가로 위치 지정
+        + start : 왼쪽
+        + center : 중앙
+        + end : 오른쪽 
+
++ 선택자
+    + * : 전체 선택
+    + 태그명 : 지정된 태그명을 가지는 요소 선택
+    + #id : id값을 가지는 요소 선택
+    + .class : class이름을 가지는 요소 선택
+    + 셀렉터[속성] : 셀렉터 내의 속성을 갖는 요소 모두 선택
+    + 셀렉터[속성=값] : 셀렉터 내에서 속성이 해당 값을 갖는 요소 모두 선택
+    + 
+
++ :nth-child(), :nth-last-child()
+    + :nth-child()와 :nth-last-child()는 특정 순서에 있는 요소를 선택할 때 사용하는 선택자입니다.
+    + :nth-child()는 앞에서부터 세고, :nth-last-child()는 뒤에서부터 셉니다.
+
++ flex box
+    + container (겉 박스)
+    + items (겉 박스 안의 박스들)
+    + justify-choice: options / align-items: options
+        + 각각 가로 / 세로 중심축을 설정, 축을 중심으로 items 정렬
+        + choice
+            + content, items : 전체 items 설정
+            + self : 지정된 단일 item 설정
+        + options
+            + flex-start
+            + flex-end
+            + center
+            + space-between
+            + space-around
+
++ font-weigth: N
+    + 폰트 굵기
+
++ text-transform: options
+    + 대문자 또는 소문자 변경
+        + none : 입력된 그대로 출력합니다.
+        + capitalize : 단어의 첫번째 글자를 대문자로 바꿉니다.
+        + uppercase : 모든 글자를 대문자로 바꿉니다.
+        + lowercase : 모든 글자를 소문자로 바꿉니다.
+        + initial : 기본값으로 설정합니다.
+        + inherit : 부모 요소의 속성값을 상속받습니다.
+
++ border
+    + 테두리 설정 (width-style-color 순)
+    + width: Npx
+    + style: options
+        + solid
+	    + dotted
+	    + dashed
+	    + double
+	    + groove
+	    + ridge
+	    + inset
+	    + outset
+    + color: color value
+
+
 ## ref 페이지
 
 + express ref : https://expressjs.com/
