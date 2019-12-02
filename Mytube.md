@@ -411,6 +411,94 @@
 + styles.scss
     + 실제로 html에서 link로 읽어올 stylesheet
 
+# 24) PassPortJS
+
++ 인증 모듈 ( ref: http://www.passportjs.org/ )
+
++ 설치 : npm install passport-local-mongoose
+    + ref : https://github.com/saintedlama/passport-local-mongoose
+
+## 그외 개념
+
++ 쿠키와 세션
+    + HTTP특징(stateless, connectionless) 해결을 위해 고안
+        + stateless : 통신이 끝나면 상태를 유지하지 않음
+        + connectionless : 클라이언트 요청 후 응답 받으면 연결 끊음
+    + 쿠키
+        + 브라우저에 저장되어 있는 데이터
+        + 모든 요청에 대해, 백엔드로 전성될 정보가 담겨있음
+            + 이름 : 쿠키 이름
+            + 값 : 가진 데이터 값
+            + 유효시간 : 쿠키 유효시간
+            + 도메인 : 쿠키 전송할 도메인
+            + 경로 : 쿠키를 전송할 요청 경로
+        + 동작방식
+            + 클라이언트가 페이지 req
+            + 서버에서 쿠키 생성
+            + HTTP 헤더에 쿠키 포함시켜 응답
+            + 브라우저가 종료되어도 쿠키 만료기간이 있다면 클라에서 보관
+            + 쿠키가 존재하면 req시, HTTP 헤더에 함께 보냄
+            + 서버에서 쿠키를 읽어, 상태정보 변경 필요하면 변경, 쿠키 업댓 후, HTTP 헤더에 포함시켜 res
+        + 사용 예
+            + 방문 사이트 로그인시, 아이디 비번 저장
+            + 쇼핑몰 장바구니 기능
+    + 세션
+        + 쿠키 기반, 브라우저가 아닌 서버에서 관리
+        + 클라 구분을 이해 세션ID 부여, 접속된 클라의 브라우저 종료시까지 인증 유지
+        + heart neat 등을 통해 제한시간 지나면 연결 끊도록 설정 가능
+        + 쿠키보다 보안이 좋지만, 사용자 많을수록 메모리 사용량이 많아짐
+        + 동작방식
+            + 클라 서버접속시, 세션ID 발급
+            + 클라는 세션 ID에 대해 쿠키 사용해서 저장(이때 쿠키명 = JSESSIONOD)
+            + 클라가 다시 서버 접속시, 이 쿠키를 이용해 세션 ID값을 서버에 전달
+
++ 세션 기반인증과 토큰 기반인증
+
+    + 개념도 ref: https://sanghaklee.tistory.com/47
+    
+    + 세션기반인증
+        
+        + 세션 데이터가 세션 메모리에 저장되므로, 확장시 모든 서버가 접근할 수 있게 별도의 중앙 세션 관리 시스템 필요
+        
+        + 규모 확장이 필요없는 소규모 프로그램에서는 세션기반인증 방식이 문제없음
+
+        + 세션인증 동작방식
+            + 클라 로그인
+            + 로그인 성공시, 유저 세션 만들고, 메모리나 DB에 저장
+            + 서버가 클라에게 SESSION ID 보냄
+            + 클라이언트 브라우저에 SESSION ID만 쿠키에 저장
+
+        + 문제점
+            + 중앙 세션관리 시스템이 없으면, 시스템 확장이 어렵다.
+            + 중앙 세션 관리 시스템 장애시, 시스템 전체에 문제 발생
+            + 만약 메모리에 세션 정보가 들어있다면, 메모리가 많이 사용됨
+
+    + 토큰기반인증(JWT = Json Web Token)
+        
+        + 필요한 정보를 토큰 body에 저장해 클라가 가지고 있고, 이것을 증명서로 사용
+        
+        + 기본 구성
+            + xxxxx.yyyyy.zzzzz
+                + Header(xxxxx)
+                    + JWT 토큰 유형, RSA , HMAC등 해시 알고리즘 무엇으로 사용했는지 정보 담김
+                    + Base64Url로 인코딩
+                + Payload(yyyyy)
+                    + 클라정보, meta Data 내용 담김
+                    + Base64Url로 인코딩
+                +Signature(zzzzz)
+                    + header에서 지정한 알고리즘과 secret 키, 서명으로 payload, header 담음
+        
+        + payload 내용
+            + JWT는 내용을 해독해 볼 수 있으므로, 중요 데이터를 미포함 한다
+            + JWT 해독 사이트 https://jwt.io
+        
+        + JWT 보안 위험
+            + 클라는 해독가능, 받는 자는 secret 키 알아야 수정가능
+            + 작동원리 ref: https://yonghyunlee.gitlab.io/node/jwt/
+        
+        + 수명 
+            + JWT 수명을 짧게하고 정기적으로 재발급을 요구하면, 원치않는 클라를 빨리 막을 수 있음
+
 ## css 정리
 
 + display: options;
@@ -497,7 +585,6 @@
 	    + inset
 	    + outset
     + color: color value
-
 
 ## ref 페이지
 

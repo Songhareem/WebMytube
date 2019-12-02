@@ -33,8 +33,6 @@ db.once("open", handleOpen);
 db.on("error",handleError);
 
 
-
-
 /* fake db for test
 const videos = [
     {
