@@ -418,6 +418,13 @@
 + 설치 : npm install passport-local-mongoose
     + ref : https://github.com/saintedlama/passport-local-mongoose
 
++ passport.serializeUser(function(user, done) { done(null,user.id )});
+    + 어떤 정보를 쿠키에 줄 것인가
+    + 쿠키에는 민감한 정보나 많은 정보 담지말것
+
++ passport.deserializeUser(function(id, done) { User.findById(id, funtion(err, user { done(err,user); }))});
+    + 어떤 유저인지 id로 찾기
+
 ## 그외 개념
 
 + 쿠키와 세션

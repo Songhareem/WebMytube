@@ -27,7 +27,7 @@ async function handleHome(req, res) {
     try{
         //await Video.remove();
         const videos = await Video.find({}).sort({ _id: -1}); // db의 모든 video 가져옴
-        console.log(videos);
+        //console.log(videos);
         res.render("home.pug", {pageTitle: "Home", videos: videos});
     }catch(error) {
         console.log(error);

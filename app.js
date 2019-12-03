@@ -8,7 +8,7 @@
 //import cookieParser from "cookie-parser";
 //import bodyParser from "body-parser";
 //import { userRouter } from "./router"
- 
+
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express = require('express');
@@ -19,6 +19,8 @@ const middlewares = require("./middlewares");
 const routes = require('./routes');
 const userRouter = require('./routers/userRouter');
 const videoRouter = require('./routers/videoRouter');
+const passport = require('passport');
+require('./passport');
 
 const app = express();
 
@@ -57,6 +59,12 @@ app.use(morgan("dev"));
 //app.use(morgan("short"));
 //app.use(morgan("tiny"));
 
+// cookie parser 이후, 
+// passport 초기화 + 쿠키에 해당하는 유저 찾음
+app.use(passport.initialize());
+app.use(passport.session()); 
+
+// passport에서 찾아준 req.user 받음
 // extern vals and funcs what i want
 app.use(middlewares.localsMiddleware);
 

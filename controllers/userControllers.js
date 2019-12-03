@@ -1,5 +1,7 @@
 
 const routes = require('../routes');
+const User = require('../models/User');
+const passport = require('passport');
 
 Object.defineProperty(exports, "__esModule", {
     value : true
@@ -8,7 +10,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.handleGetJoin = handleGetJoin;
 exports.handlePostJoin = handlePostJoin;
 exports.handleGetLogin = handleGetLogin;
-exports.handlePostLogin = handlePostLogin;
+exports.handlePostLogin = void 0;
 exports.handleLogout = handleLogout;
 
 exports.handleUsers = handleUsers;
@@ -17,13 +19,13 @@ exports.handleEditProfile = handleEditProfile;
 exports.handleChangePassword = handleChangePassword;
 
 // Global
+async function handleGetJoin(req, res) {
 
-function handleGetJoin(req, res) {
-
+    console.log(await User.findOneAndDelete({name: "송하림"}));
     res.render('join.pug', {pageTitle: "Join"});
 }
 
-function handlePostJoin(req,res) {
+async function handlePostJoin(req,res,next) {
 
     const reqBody = req.body;
     // password worng
@@ -32,7 +34,19 @@ function handlePostJoin(req,res) {
         res.render('join.pug', {pageTitle: "Join"});
     } else {
         // to do : register user, Log user in
-        res.redirect(routes.home);
+        try{
+            const user = {
+                name: reqBody.name,
+                email: reqBody.email, 
+            };
+            // register({name, email}, password);
+            await User.register(user, reqBody.password);
+            console.log(await User.find({}));
+            next();
+        }catch(err) {
+            console.log(err);
+            res.redirect(routes.home);
+        }
     }
 }
 
@@ -41,10 +55,11 @@ function handleGetLogin(req, res) {
     res.render('login.pug', {pageTitle: "Login"});
 }
 
-function handlePostLogin(req, res) {
-    // to do : 입력한 사용자 비번 DB에서 조회
-    res.redirect(routes.home);
-}
+const handlePostLogin = passport.authenticate('local',{
+
+    failureRedirect: routes.login,
+    successRedirect: routes.home,
+})
 
 function handleLogout(req, res) {
 
@@ -72,3 +87,5 @@ function handleChangePassword(req, res) {
 
     res.render("userChangePassword.pug", {pageTitle: "Change Password"});
 }
+
+exports.handlePostLogin = handlePostLogin;

@@ -25,10 +25,7 @@ function localsMiddleware(req, res, next) {
     res.locals.routes = routes;
     
     //*///// Auth Test ////////
-    res.locals.user = {
-        isAutenticated: false,
-        id:1
-    };
+    res.locals.user = req.user || {};
     /////////////////////////*/
 
     // 이 다음에 있는 함수로 개행

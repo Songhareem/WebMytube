@@ -13,6 +13,6 @@ const UserSchema = new mongoose.Schema({
 
 UserSchema.plugin(passport, {usernameField: 'email'});
 
-const model = mongoose.Model("User",UserSchema);
+const model = mongoose.model("User",UserSchema);
 
 module.exports = model;
