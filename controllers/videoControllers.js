@@ -61,9 +61,10 @@ function handleGetUpload(req, res) {
 async function handlePostUpload(req, res) {
 
     const reqBody = req.body; // title, description
-    const reqFile = req.file; // path
+    //const reqFile = req.file; // path
     console.log(req.body);
-    //console.log(req.file);
+    console.log(req.file);
+    console.log(req.files);
     // to do: upload and save videos
     try{
         const newVideo = await Video.create({

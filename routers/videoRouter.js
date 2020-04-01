@@ -10,7 +10,8 @@ videoRouter.get("/", videoController.handleVideos);
 
 // upload
 videoRouter.get(routes.upload, videoController.handleGetUpload);
-videoRouter.post(routes.upload, middleware.uploadVideo, videoController.handlePostUpload);
+//videoRouter.post(routes.upload, middleware.uploadVideo, videoController.handlePostUpload);
+videoRouter.post(routes.upload, middleware.uploadVideos, videoController.handlePostUpload);
 
 // detail
 videoRouter.get(routes.videoDetail(), videoController.handleVideoDetail);

@@ -15,8 +15,12 @@ exports.uploadVideo = void 0;
 // multer file 저장 경로
 const multerVideo = multer({dest: "uploads/videos/"});
 const uploadVideo = multerVideo.single("videoFile");
-
 exports.uploadVideo = uploadVideo;
+
+// multer files 저장 경로
+const multerVideos = multer({dest: "uploads/videos/"});
+const uploadVideos = multerVideos.array("filename");
+exports.uploadVideos = uploadVideos;
 
 function localsMiddleware(req, res, next) {
 
